@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    container_name: dev-camper
+    restart: always
+    build: .
+    ports:
+      - "80:5000"
+    external_links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
